@@ -1,0 +1,262 @@
+.contact-section{
+    position: relative;
+    padding: 120px 8%;
+    background:#f5f5f5;;
+    overflow: hidden;
+}
+
+.contact-bg .glow{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+}
+
+.glow1{
+    top: -100px;
+    left: -100px;
+    background: rgba(255, 196, 0, 0.25);
+}
+
+.glow2{
+    bottom: -100px;
+    right: -100px;
+    background: rgba(255, 196, 0, 0.18);
+}
+
+.contact-container{
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title{
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.mini-tag{
+    background: #ffcc00;
+    color: #000;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-title h1{
+    font-size: 60px;
+    margin-top: 25px;
+    color: #111;
+}
+
+.contact-title h1 span{
+    color: #ffb300;
+}
+
+.contact-title p{
+    margin-top: 18px;
+    color: #555;
+    font-size: 18px;
+}
+
+.contact-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-left{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-card{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    background: white;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.4s;
+}
+
+.contact-card:hover{
+    transform: translateY(-8px);
+    border-color: #ffcc00;
+    box-shadow: 0 15px 35px rgba(255, 196, 0, 0.2);
+}
+
+.contact-icon{
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg,#ffcc00,#ff9900);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: black;
+}
+
+.contact-card h3{
+    color: #111;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.contact-card p{
+    color: #555;
+    line-height: 1.7;
+}
+
+.social-box{
+    background: white;
+    padding: 45px;
+    border-radius: 30px;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.social-box h2{
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.social-box p{
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.social-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.social-card{
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: #111;
+    transition: 0.4s;
+}
+
+.social-card svg{
+    font-size: 35px;
+}
+
+.social-card span{
+    font-weight: 600;
+}
+
+.social-card:hover{
+    transform: translateY(-8px);
+    background: linear-gradient(135deg,#ffcc00,#ff9900);
+    color: black;
+    box-shadow: 0 12px 25px rgba(255,196,0,0.3);
+}
+
+.contact-buttons{
+    display: flex;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.whatsapp-btn,
+.call-btn{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+.whatsapp-btn{
+    background: #25D366;
+    color: white;
+}
+
+.call-btn{
+    background: #111;
+    color: white;
+}
+
+.whatsapp-btn:hover,
+.call-btn:hover{
+    transform: translateY(-6px);
+}
+
+.fade-up{
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.fade-up.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:900px){
+
+    .contact-main{
+        grid-template-columns: 1fr;
+    }
+
+    .contact-title h1{
+        font-size: 42px;
+    }
+
+    .social-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-buttons{
+        flex-direction: column;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .contact-section{
+        padding: 90px 5%;
+    }
+
+    .contact-title h1{
+        font-size: 34px;
+    }
+
+    .social-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-box{
+        padding: 30px;
+    }
+
+}

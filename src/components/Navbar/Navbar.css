@@ -1,0 +1,131 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 60px;
+  height: 75px;
+  background: #eeeeee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo img {
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* MENU (DESKTOP) */
+.menu {
+  display: flex;
+  gap: 45px;
+  list-style: none;
+  align-items: center;
+}
+
+/* LINKS */
+.menu li {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  color: #111;
+}
+
+/* UNDERLINE ANIMATION */
+.menu li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #f5c518;
+  left: 50%;
+  bottom: -6px;
+  transition: 0.3s ease;
+}
+
+.menu li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* BUTTON */
+.btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #222;
+}
+
+/* TOGGLE */
+.toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .nav {
+    padding: 10px 20px;
+    height: 65px;
+  }
+
+  /* LOGO */
+  .logo img {
+    height: 55px;
+  }
+
+  /* MENU */
+  .menu {
+    position: absolute;
+    top: 65px;
+    right: -100%;
+    width: 100%;
+    background: #eeeeee;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    gap: 25px;
+    transition: 0.3s ease;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  /* MOBILE LINKS */
+  .menu li {
+    font-size: 18px;
+  }
+
+  /* BUTTON HIDE */
+  .btn {
+    display: none;
+  }
+
+  /* TOGGLE SHOW */
+  .toggle {
+    display: block;
+  }
+}
