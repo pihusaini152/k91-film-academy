@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Home.css";
-import video from "../../assets/Herovideo.mp4";
+import video from "../..//assets/Herovideo.mp4";
 
 const Home = () => {
 
