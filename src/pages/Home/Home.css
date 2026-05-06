@@ -86,25 +86,74 @@ height: calc(100vh - 75px);
   box-shadow: 0 0 15px rgba(245, 197, 24, 0.8);
 }
 
-
-/* 📱 MOBILE */
+/* 📱 MOBILE VIEW */
 @media (max-width: 768px) {
 
   .home {
-    height: calc(100dvh - 65px); /* 🔥 perfect mobile fit */
+    height: calc(100dvh - 65px);
   }
 
+  /* OVERLAY LEFT SIDE */
+  .overlay {
+    align-items: flex-start;
+    justify-content: center;
+
+    text-align: left;
+
+    padding: 20px;
+  }
+
+  /* HEADING */
   .overlay h1 {
     font-size: 26px;
     gap: 6px;
+
+    justify-content: flex-start;
+
+    opacity: 0;
+    transform: translateX(-80px);
+
+    animation: slideLeft 1s ease forwards;
   }
 
+  /* TEXT */
   .overlay p {
     font-size: 14px;
+
+    max-width: 100%;
+
+    opacity: 0;
+    transform: translateX(-80px);
+
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 0.3s;
   }
 
+  /* BUTTON */
   .hero-btn {
     padding: 10px 20px;
     font-size: 14px;
+  }
+
+  .hero-controls {
+    opacity: 0;
+    transform: translateX(-80px);
+
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 0.6s;
+  }
+}
+
+/* SLIDE ANIMATION */
+@keyframes slideLeft {
+
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
