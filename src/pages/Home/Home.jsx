@@ -1,52 +1,55 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import video from "../../assets/Herovideo.mp4";
 
 const Home = () => {
+
   const videoRef = useRef(null);
 
+  const [soundOn, setSoundOn] = useState(false);
+
   useEffect(() => {
+
     const vid = videoRef.current;
 
     if (vid) {
       vid.volume = 0.5;
-      vid.muted = true; // start muted (browser rule)
+      vid.muted = true;
+
+      vid.play().catch(() => {});
     }
 
-    // 🔊 enable sound on user interaction
-    const enableSound = () => {
-      if (vid) {
-        vid.muted = false;
-        vid.volume = 0.5;
-        vid.play();
-      }
-    };
-
-    window.addEventListener("click", enableSound);
-    window.addEventListener("touchstart", enableSound);
-
-    // 🔇 scroll mute/unmute
-    const handleScroll = () => {
-      const section = document.getElementById("home");
-      const rect = section.getBoundingClientRect();
-
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        vid.muted = false;
-      } else {
-        vid.muted = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("click", enableSound);
-      window.removeEventListener("touchstart", enableSound);
-    };
   }, []);
 
+  // 🔊 SOUND TOGGLE
+  const toggleSound = () => {
+
+    const vid = videoRef.current;
+
+    if (vid) {
+
+      if (vid.muted) {
+
+        vid.muted = false;
+        vid.volume = 0.5;
+
+        vid.play();
+
+        setSoundOn(true);
+
+      } else {
+
+        vid.muted = true;
+
+        setSoundOn(false);
+      }
+
+    }
+
+  };
+
   return (
+
     <section id="home" className="home">
 
       {/* 🎬 VIDEO */}
@@ -54,16 +57,17 @@ const Home = () => {
         ref={videoRef}
         src={video}
         autoPlay
+        muted
         loop
         playsInline
-        muted
         className="bg-video"
       />
 
       {/* 🎯 CONTENT */}
       <div className="overlay">
+
         <h1>
-          Become a Complete <span>Filmmaker 🎬</span> 
+          Become a Complete <span>Filmmaker 🎬</span>
         </h1>
 
         <p>
@@ -71,7 +75,41 @@ const Home = () => {
           projects and industry-level tools. Turn your passion into a powerful career.
         </p>
 
-        <button className="hero-btn">Join Now</button>
+        <div className="hero-controls">
+
+        <button
+  className="hero-btn sound-btn"
+  onClick={() => {
+
+    const vid = videoRef.current;
+
+    if (vid) {
+
+      if (vid.muted) {
+
+        vid.muted = false;
+        vid.volume = 0.5;
+
+        vid.play();
+
+        setSoundOn(true);
+
+      } else {
+
+        vid.muted = true;
+
+        setSoundOn(false);
+      }
+
+    }
+
+  }}
+>
+  {soundOn ? "🔊 Sound" : "🔇 Sound"}
+</button>
+
+        </div>
+
       </div>
 
     </section>
