@@ -82,27 +82,26 @@
   font-size: 26px;
   cursor: pointer;
 }
-
 @media (max-width: 768px) {
 
   .nav {
     padding: 10px 20px;
-    height: 65px;
+    height: 75px;
   }
 
-  /* LOGO */
+  /* LOGO BIGGER */
   .logo img {
-    height: 55px;
+    height: 70px;
   }
 
   /* MENU */
   .menu {
     position: fixed;
-    top: 65px;
+    top: 75px;
     right: -100%;
 
-    width: 100%;
-    height: calc(100vh - 65px);
+    width: 55%;
+    height: calc(100vh - 75px);
 
     background: #eeeeee;
 
@@ -110,17 +109,19 @@
     flex-direction: column;
 
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
-    padding: 25px 0;
-    gap: 30px;
+    padding-top: 50px;
+    gap: 35px;
 
-    transition: 0.3s ease;
+    transition: 0.4s ease;
 
-    overflow-x: hidden;
     z-index: 999;
+
+    box-shadow: -5px 0 15px rgba(0,0,0,0.15);
   }
 
+  /* ACTIVE MENU */
   .menu.active {
     right: 0;
   }
@@ -131,20 +132,17 @@
     list-style: none;
   }
 
-  .menu a {
-    text-decoration: none;
-    color: black;
-  }
-
   /* BUTTON HIDE */
   .btn {
     display: none;
   }
 
-  /* TOGGLE SHOW */
+  /* TOGGLE */
   .toggle {
     display: block;
+    font-size: 34px;
     z-index: 1000;
+    cursor: pointer;
   }
 
   /* REMOVE SIDE SCROLL */
