@@ -1,4 +1,4 @@
-/* Courses.css - Fully Responsive with Smaller Cards on Mobile */
+/* Courses.css */
 .courses {
   padding: 100px 20px;
   background: #f5f5f5;
@@ -10,14 +10,14 @@
   font-size: 40px;
   margin-bottom: 50px;
   font-weight: 700;
-  color: black;  
+  color: black;
 }
 
 .title span {
   color: #f5c518;
 }
 
-
+/* GRID */
 .courses-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -26,37 +26,40 @@
   margin: 0 auto;
 }
 
-/* Card base styling */
+/* CARD */
 .card {
   background: white;
-  padding: 35px 20px;
+  padding: 20px 5px;
   border-radius: 16px;
+  width: 400px;
+
+  border: 2px solid #f5c518;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
   transition: all 0.3s ease;
+
   position: relative;
   cursor: pointer;
-  
-  /* Hidden by default */
+
   opacity: 0;
 }
 
-/* Left side cards - slide from left (only desktop) */
+/* DESKTOP ANIMATION */
 .card.left {
   transform: translateX(-100px);
 }
 
-/* Right side cards - slide from right (only desktop) */
 .card.right {
   transform: translateX(100px);
 }
 
-/* When show class is added - cards become visible */
 .card.show {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Staggered delays */
+/* DELAYS */
 .card.delay1.show {
   transition-delay: 0.1s;
 }
@@ -73,78 +76,19 @@
   transition-delay: 0.7s;
 }
 
-/* ========== ROTATING YELLOW BORDER LINE ========== */
-.card {
-  position: relative;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 2px solid transparent;
-}
-
-/* Rotating border gradient - always visible */
-.card::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  background: conic-gradient(
-    from 0deg,
-    #f5c518,
-    #ffdd77,
-    #f5c518,
-    #ffaa00,
-    #f5c518,
-    #f5c518
-  );
-  border-radius: 18px;
-  animation: rotateBorder 2.5s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Card ke content ko border ke upar rakhne ke liye inner white layer */
-.card::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  background: white;
-  border-radius: 14px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Content ko upar rakhne ke liye */
-.card > * {
-  position: relative;
-  z-index: 3;
-}
-
-@keyframes rotateBorder {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Card hover effect */
+/* HOVER */
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.14);
 }
 
-/* Icon styling */
+/* ICON */
 .card-icon {
   width: 70px;
   height: 70px;
+
   margin: 0 auto 20px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,20 +97,22 @@
 .card-icon img {
   width: 55px;
   height: 55px;
+
   object-fit: contain;
-  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+
+  transition: transform 0.35s ease;
 }
 
-/* Icon zoom on hover */
 .card:hover .card-icon img {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
-/* Card text */
+/* TEXT */
 .card h3 {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-size: 1.4rem;
   font-weight: 700;
+
   transition: color 0.3s ease;
 }
 
@@ -174,288 +120,204 @@
   color: #777;
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.6;
 }
 
-/* Text color change on hover */
 .card:hover h3 {
   color: #f5c518;
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
-
-/* Tablet view (768px to 1024px) */
+/* ================= TABLET ================= */
 @media (max-width: 1024px) {
+
   .courses-grid {
     gap: 25px;
     max-width: 800px;
   }
-  
+
   .title {
     font-size: 38px;
-    margin-bottom: 50px;
   }
-  
+
   .card {
     padding: 30px 18px;
   }
-  
+
   .card h3 {
     font-size: 1.3rem;
   }
-  
+
   .card.left {
     transform: translateX(-60px);
   }
-  
+
   .card.right {
     transform: translateX(60px);
   }
 }
 
-/* Mobile view (768px se neeche) */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
+
   .courses {
     padding: 60px 16px;
   }
-  
+
   .courses-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
-    max-width: 300px;
+
+    gap: 40px;
+
+    max-width: 320px;
+
     margin: 0 auto;
   }
-  
+
   .title {
     font-size: 30px;
     margin-bottom: 35px;
   }
-  
+
   .card {
     padding: 28px 18px;
-    border-radius: 18px;
+
     width: 100%;
-    max-width: 260px;
+    max-width: 280px;
+
     margin: 0 auto;
+
+    border-radius: 18px;
   }
-  
-  /* Mobile view mein left/right slide hataya - neeche se upar aayega */
+
+  /* MOBILE ANIMATION */
   .card.left,
   .card.right {
     transform: translateY(30px);
   }
-  
+
   .card.show {
     transform: translateY(0);
   }
-  
-  .card::before {
-    border-radius: 20px;
+
+  .card:hover {
+    transform: translateY(-2px);
   }
-  
-  .card::after {
-    border-radius: 16px;
-  }
-  
+
   .card-icon {
     width: 55px;
     height: 55px;
+
     margin-bottom: 15px;
   }
-  
+
   .card-icon img {
     width: 42px;
     height: 42px;
   }
-  
-  .card:hover .card-icon img {
-    transform: scale(1.15);
-  }
-  
+
   .card h3 {
     font-size: 1.2rem;
-    margin-bottom: 6px;
   }
-  
+
   .card p {
     font-size: 12px;
   }
-  
-  .card:hover {
-    transform: translateY(-4px);
-  }
 }
 
-/* Small mobile view (480px se neeche) */
+/* ================= SMALL MOBILE ================= */
 @media (max-width: 480px) {
+
   .courses {
     padding: 50px 12px;
   }
-  
+
   .courses-grid {
-    gap: 20px;
-    max-width: 260px;
-    margin: 0 auto;
+    gap: 35px;
+    max-width: 280px;
   }
-  
+
   .title {
     font-size: 26px;
-    margin-bottom: 30px;
   }
-  
+
   .card {
     padding: 22px 14px;
-    border-radius: 16px;
-    max-width: 230px;
-    margin: 0 auto;
+    max-width: 240px;
   }
-  
-  .card.left,
-  .card.right {
-    transform: translateY(25px);
+
+  .card h3 {
+    font-size: 1.1rem;
   }
-  
-  .card::before {
-    border-radius: 18px;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
+
+  .card p {
+    font-size: 11px;
   }
-  
-  .card::after {
-    border-radius: 14px;
-    top: 1.5px;
-    left: 1.5px;
-    right: 1.5px;
-    bottom: 1.5px;
-  }
-  
+
   .card-icon {
     width: 48px;
     height: 48px;
-    margin-bottom: 12px;
   }
-  
+
   .card-icon img {
     width: 36px;
     height: 36px;
   }
-  
-  .card:hover .card-icon img {
-    transform: scale(1.12);
-  }
-  
-  .card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-  }
-  
-  .card p {
-    font-size: 11px;
-  }
-  
-  .card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .card::before {
-    animation: rotateBorder 3s linear infinite;
-  }
 }
 
-/* Extra small devices (375px se neeche) */
+/* ================= EXTRA SMALL ================= */
 @media (max-width: 375px) {
+
   .courses-grid {
-    max-width: 240px;
+    max-width: 250px;
   }
-  
+
   .card {
+    max-width: 220px;
     padding: 18px 12px;
-    max-width: 210px;
   }
-  
-  .card-icon {
-    width: 42px;
-    height: 42px;
-  }
-  
-  .card-icon img {
-    width: 32px;
-    height: 32px;
-  }
-  
+
   .card h3 {
     font-size: 1rem;
   }
-  
+
   .card p {
     font-size: 10px;
   }
 }
 
-/* Landscape mode for mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .courses {
-    padding: 40px 16px;
-  }
-  
-  .courses-grid {
-    max-width: 400px;
-  }
-  
-  .card {
-    padding: 20px 16px;
-    max-width: 300px;
-  }
-  
-  .card-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-  }
-  
-  .card-icon img {
-    width: 38px;
-    height: 38px;
-  }
-  
-  .card h3 {
-    font-size: 1.1rem;
-  }
-}
-
-/* Large screens (1200px and above) */
+/* ================= LARGE SCREEN ================= */
 @media (min-width: 1200px) {
+
   .courses-grid {
     max-width: 1100px;
     gap: 35px;
   }
-  
+
   .card {
     padding: 40px 25px;
   }
-  
+
   .card.left {
     transform: translateX(-120px);
   }
-  
+
   .card.right {
     transform: translateX(120px);
   }
-  
+
   .card h3 {
     font-size: 1.5rem;
   }
-  
+
   .card p {
     font-size: 15px;
   }
-  
+
   .card-icon {
     width: 80px;
     height: 80px;
   }
-  
+
   .card-icon img {
     width: 65px;
     height: 65px;

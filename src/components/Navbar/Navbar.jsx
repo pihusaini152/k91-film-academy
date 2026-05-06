@@ -35,7 +35,7 @@ const Navbar = () => {
 
       {/* BUTTON RIGHT */}
       <button className="btn" onClick={() => scrollToSection("admission")}>
-        Enroll Now
+        Apply Now
       </button>
 
       {/* MOBILE TOGGLE */}

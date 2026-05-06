@@ -203,15 +203,15 @@ const Admission = () => {
             </option>
 
             <option value="Motion Graphics & VFX">
-                Motion Graphics & VFX
+               Graphics design 
             </option>
 
             <option value="Professional Colour Grading">
-                Professional Colour Grading
+               Web development 
             </option>
 
             <option value="Complete Filmmaking Course">
-                Complete Filmmaking Course
+                Digital marketing
             </option>
 
         </select>
