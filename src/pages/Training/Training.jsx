@@ -140,9 +140,16 @@ const Training = () => {
 
         {/* CTA Button - Get Started */}
         <div className="cta">
-          <button className="get-started-btn" onClick={handleGetStarted}>
-            Get Started <span className="arrow">→</span>
-          </button>
+          <button
+  className="get-started-btn"
+  onClick={() => {
+    document
+      .getElementById("admission")
+      .scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Get Started <span className="arrow">→</span>
+</button>
         </div>
 
       </div>
